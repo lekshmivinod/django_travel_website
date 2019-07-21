@@ -1,0 +1,237 @@
+
+
+<!DOCTYPE HTML>
+<html>
+<head>
+	{% load static %}
+<title>TRIP PLANNER</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+<link href="{% static 'css/bootstrap.css' %}" rel='stylesheet' type='text/css' />
+<link href="{% static 'css/style.css' %}" rel='stylesheet' type='text/css' />
+<link href="{% static 'css/style1.css' %}" rel='stylesheet' type='text/css' />
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<!--<script src="js/jquery.easydropdown.js"></script>-->
+<!--start slider -->
+<link rel="stylesheet" href="{% static 'css/fwslider.css' %}" media="all">
+<script src="{% static 'js/jquery-ui.min.js' %}"></script>
+<script src="{% static 'js/fwslider.js' %}"></script>
+<!--end slider -->
+<script type="text/javascript">
+        $(document).ready(function() {
+            $(".dropdown img.flag").addClass("flagvisibility");
+
+            $(".dropdown dt a").click(function() {
+                $(".dropdown dd ul").toggle();
+            });
+
+            $(".dropdown dd ul li a").click(function() {
+                var text = $(this).html();
+                $(".dropdown dt a span").html(text);
+                $(".dropdown dd ul").hide();
+                $("#result").html("Selected value is: " + getSelectedValue("sample"));
+            });
+
+            function getSelectedValue(id) {
+                return $("#" + id).find("dt a span.value").html();
+            }
+
+            $(document).bind('click', function(e) {
+                var $clicked = $(e.target);
+                if (! $clicked.parents().hasClass("dropdown"))
+                    $(".dropdown dd ul").hide();
+            });
+
+
+            $("#flagSwitcher").click(function() {
+                $(".dropdown img.flag").toggleClass("flagvisibility");
+            });
+        });
+     </script>
+</head>
+<body>
+	<div class="header">
+		<div class="container">
+			<div class="row">
+			  <div class="col-md-12">
+				 <div class="header-left">
+					 <div class="logo">
+						<a href="/myapp/index/"><img src="{% static 'images/logo.png' %}" alt=""/></a>
+					 </div>
+					 <div class="menu">
+						    <ul class="nav" id="nav">
+
+								<li><a href="/myapp/loggedin/">Home</a></li>
+						    	<li class="current"><a href="/myapp/packages/">Tour Packages</a></li>
+								<li><a href="/myapp/hotdeals/">Hot Deals</a></li>
+                                <li><a href="/myapp/contact/">Contact Us</a></li>
+								<li><a href="/myapp/index/">Logout</a></li>
+
+								<div class="clear"></div>
+							</ul>
+
+							<script type="text/javascript" src="{% static 'js/responsive-nav.js' %}"></script>
+					 </div>
+	    		    <div class="clear"></div>
+	    	    </div>
+	            <div class="header_right">
+	    		  <!-- start search-->
+				      <div class="search-box">
+							<div id="sb-search" class="sb-search">
+								<form>
+									<input class="sb-search-input" placeholder="Enter your search term..." type="search" name="search" id="search">
+									<input class="sb-search-submit" type="submit" value="">
+									<span class="sb-icon-search"> </span>
+								</form>
+							</div>
+						</div>
+						<!----search-scripts---->
+						<script src="{% static 'js/classie.js' %}"></script>
+						<script src="{% static 'js/uisearch.js' %}"></script>
+						<script>
+							new UISearch( document.getElementById( 'sb-search' ) );
+						</script>
+						<!----//search-scripts---->
+
+						  <div class="clear"></div>
+
+		           <div class="clear"></div>
+	       </div>
+	      </div>
+		 </div>
+	    </div>
+	  </div>
+
+
+
+
+  <section class="form" style="padding:50px; line-height:30px;">
+
+	<div class="container">
+      <form action="/action_page.php">
+
+        <div class="row">
+          <div class="col-sm-6">
+            <h3>Billing Address</h3>
+
+
+            <label for="fname"><i class="fa fa-user"></i> Full Name</label><br>
+            <input type="text" id="fname" name="firstname" placeholder="John M. Doe"><br>
+
+
+            <label for="email"><i class="fa fa-envelope"></i> Email</label><br>
+            <input type="text" id="email" name="email" placeholder="john@example.com">
+
+
+
+           </div>
+
+			<div class="col-sm-6">
+
+              <h3>Payment</h3>
+              <label for="fname">Accepted Cards</label>
+                  <div class="social">
+                      <i class="fa fa-cc-visa" style="color:navy;"></i>
+                      <i class="fa fa-cc-amex" style="color:blue;"></i>
+                      <i class="fa fa-cc-mastercard" style="color:red;"></i>
+                      <i class="fa fa-cc-discover" style="color:orange;"></i>
+
+                      <br>
+
+
+            <label for="cname">Name on Card</label><br>
+            <input type="text" id="cname" name="cardname" placeholder="John More Doe"><br>
+
+
+
+            <label for="ccnum">Credit card number</label><br>
+            <input type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444"><br>
+
+
+
+            <label for="expmonth">Exp Month</label><br>
+            <input type="text" id="expmonth" name="expmonth" placeholder="September"><br>
+
+            <!--<div class="row">-->
+              <!--<div class="col-50">-->
+
+                <label for="expyear">Exp Year</label><br>
+                <input type="text" id="expyear" name="expyear" placeholder="2019"><br>
+
+
+              <!--<div class="col-50">-->
+
+                <label for="cvv">CVV</label><br>
+                <input type="text" id="cvv" name="cvv" placeholder="352"><br>
+                      <br>
+
+      </div>
+              </div></div>
+      </form>
+
+</div>
+
+      <center><input type="submit"  value="PAY NOW" class="btn"></center>
+
+  </section>
+
+        <div class="footer">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-3">
+						<ul class="footer_box">
+							<h4>QUICK LINKS</h4>
+							<li><a href="/myapp/loggedin/">HOME</a></li>
+							<li><a href="/myapp/contact/">ABOUT US</a></li>
+						</ul>
+					</div>
+					<div class="col-md-3">
+						<ul class="footer_box">
+							<h4>Destinations</h4>
+							<li><a href="/myapp/VARANASI/">Varanasi</a></li>
+							<li><a href="/myapp/RAJASTHAN/">Rajasthan</a></li>
+							<li><a href="/myapp/KASHMIR/">Kashmir</a></li>
+							<li><a href="/myapp/MANALI/">Manali</a></li>
+						</ul>
+					</div>
+					<div class="col-md-3">
+						<ul class="footer_box">
+							<h4>Customer Support</h4>
+							<li><a href="/myapp/contact/">Contact Us</a></li>
+
+						</ul>
+					</div>
+					<div class="col-md-3">
+						<ul class="footer_box">
+							<h4>Newsletter</h4>
+							<div class="footer_search">
+				    		   <form>
+				    			<input type="text" value="Enter your email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Enter your email';}">
+				    			<input type="submit" value="Go">
+				    		   </form>
+					        </div>
+							<ul class="social">
+							  <li class="facebook"><a href="#"><span> </span></a></li>
+							  <li class="twitter"><a href="#"><span> </span></a></li>
+							  <li class="instagram"><a href="#"><span> </span></a></li>
+							  <li class="pinterest"><a href="#"><span> </span></a></li>
+							  <li class="youtube"><a href="#"><span> </span></a></li>
+						    </ul>
+		   				</ul>
+					</div>
+				</div>
+				<div class="row footer_bottom">
+				    <div class="copy">
+			           <p>© 2019 Template by <a href="#" target="_blank">tripplanner</a></p>
+		            </div>
+   				</div>
+			</div>
+		</div>
+</body>
+</html>

@@ -1,0 +1,307 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+	{% load static %}
+<title>TRIP PLANNER</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+<link href="{% static 'css/bootstrap.css' %}" rel='stylesheet' type='text/css' />
+<link href="{% static 'css/style.css' %}" rel='stylesheet' type='text/css' />
+<link href="{% static 'css/style1.css' %}" rel='stylesheet' type='text/css' />
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<!--<script src="js/jquery.easydropdown.js"></script>-->
+<!--start slider -->
+<link rel="stylesheet" href="{% static 'css/fwslider.css' %}" media="all">
+<script src="{% static 'js/jquery-ui.min.js' %}"></script>
+<script src="{% static 'js/fwslider.js' %}"></script>
+<!--end slider -->
+<script type="text/javascript">
+        $(document).ready(function() {
+            $(".dropdown img.flag").addClass("flagvisibility");
+
+            $(".dropdown dt a").click(function() {
+                $(".dropdown dd ul").toggle();
+            });
+
+            $(".dropdown dd ul li a").click(function() {
+                var text = $(this).html();
+                $(".dropdown dt a span").html(text);
+                $(".dropdown dd ul").hide();
+                $("#result").html("Selected value is: " + getSelectedValue("sample"));
+            });
+
+            function getSelectedValue(id) {
+                return $("#" + id).find("dt a span.value").html();
+            }
+
+            $(document).bind('click', function(e) {
+                var $clicked = $(e.target);
+                if (! $clicked.parents().hasClass("dropdown"))
+                    $(".dropdown dd ul").hide();
+            });
+
+
+            $("#flagSwitcher").click(function() {
+                $(".dropdown img.flag").toggleClass("flagvisibility");
+            });
+        });
+     </script>
+</head>
+<body>
+	<div class="header">
+		<div class="container">
+			<div class="row">
+			  <div class="col-md-12">
+				 <div class="header-left">
+					 <div class="logo">
+						<a href="/myapp/index/"><img src="{% static 'images/logo.png' %}" alt=""/></a>
+					 </div>
+					 <div class="menu">
+						    <ul class="nav" id="nav">
+
+								<li><a href="/myapp/index">Home</a></li>
+						    	<li class="current"><a href="/myapp/gallery/">Gallery</a></li>
+								<li><a href="/myapp/contact_lo/">Contact Us</a></li>
+								<li><a href="/myapp/register/">Register</a></li>
+								<li><a href="/myapp/login/">Sign In</a></li>
+
+
+								<div class="clear"></div>
+							</ul>
+
+							<script type="text/javascript" src="{% static 'js/responsive-nav.js' %}"></script>
+					 </div>
+	    		    <div class="clear"></div>
+	    	    </div>
+	            <div class="header_right">
+	    		  <!-- start search-->
+				      <div class="search-box">
+							<div id="sb-search" class="sb-search">
+								<form>
+									<input class="sb-search-input" placeholder="Enter your search term..." type="search" name="search" id="search">
+									<input class="sb-search-submit" type="submit" value="">
+									<span class="sb-icon-search"> </span>
+								</form>
+							</div>
+						</div>
+						<!----search-scripts---->
+						<script src="{% static 'js/classie.js' %}"></script>
+						<script src="{% static 'js/uisearch.js' %}"></script>
+						<script>
+							new UISearch( document.getElementById( 'sb-search' ) );
+						</script>
+						<!----//search-scripts---->
+
+						  <div class="clear"></div>
+
+		           <div class="clear"></div>
+	       </div>
+	      </div>
+		 </div>
+	    </div>
+	  </div>
+
+
+
+
+
+
+	<div class="banner">
+	<!-- start slider -->
+       <div id="fwslider">
+         <div class="slider_container">
+            <div class="slide">
+                <!-- Slide image -->
+               <img src="{% static 'images/jaipur2.jpg' %}" class="img-responsive" alt=""/>
+                <!-- /Slide image -->
+                <!-- Texts container -->
+                <div class="slide_content">
+                    <div class="slide_content_wrap">
+                        <!-- Text title -->
+                        <h1 class="title">Explore Rajasthan</h1>
+                        <!-- /Text title -->
+                        <!--<div class="button"><a href="#">See Details</a></div>-->
+                    </div>
+                </div>
+               <!-- /Texts container -->
+            </div>
+            <!-- /Duplicate to create more slides -->
+			 <div><br></div>
+
+
+            <div class="slide">
+               <img src="{% static 'images/jaipur1.jpg' %}" class="img-responsive" alt=""/>
+                <div class="slide_content">
+                    <div class="slide_content_wrap">
+                        <h1 class="title">Explore Rajasthan</h1>
+                       	<!--<div class="button"><a href="#">See Details</a></div>-->
+                    </div>
+                </div>
+            </div>
+
+			 <div class="slide">
+               <img src="{% static 'images/jaipur3.jpg' %}" class="img-responsive" alt=""/>
+                <div class="slide_content">
+                    <div class="slide_content_wrap">
+                        <h1 class="title">Explore Rajasthan</h1>
+                       	<!--<div class="button"><a href="#">See Details</a></div>-->
+                    </div>
+                </div>
+            </div>
+            <!--/slide -->
+        </div>
+        <div class="timers"></div>
+        <div class="slidePrev"><span></span></div>
+        <div class="slideNext"><span></span></div>
+       </div>
+       <!--/slider -->
+      </div>
+
+      	<div class="content-bottom">
+		<div class="container">
+			<div class="row content_bottom-text">
+			  <div class="col-md-7">
+				<!--<h3 style="color:black"><b>North India Tour</b></h3>-->
+                  <h3 style="color:green" ><b>7 Days - Rajasthan </b></h3>
+				<p style="color:black"><b> One of the most renowned traveler circuits in India,  consists of three cities of North India - Agra, Jaipur and Delhi.
+                    These cities offer you an opportunity to experience the architectural, cultural and ancient heritage.
+                    Make the most of your holidays in these cities by getting the best Golden Triangle tour Packages from Tour My India.
+                    From the bustling bazaars and monuments of Delhi, sight of the magnificent Taj Mahal
+                    at Agra to royal buildings and exquisite havelis at Jaipur,
+                    our packages are fully customized to cater to the needs of every traveler.  </b></p><br>
+
+
+                  <h2 style="color:green"><b>ITINERARY</b></h2>
+                  <ul style="list-style-type:none;">
+                      <h2 style="color:brown"><b>Day 1: </b>ARRIVE DELHI</h2>
+                      <li>  <b> Upon arrival at Delhi meeting and assistance followed by transfer to hotel. Overnight stay at hotel.</b></li><br>
+
+                      <h2 style="color:brown"><b>Day 2: </b>DELHI</h2>
+                      <li>  <b> Breakfast at the hotel and enjoy the full day sightseeing of New Delhi in the Morning which includes
+                          Laxmi Narayan Temple, India Gate, Parliament House, Qutub Minar, Purana Qila, Humayun’s Tomb, Jantar Mantar Etc.
+                          After having lunch we can proceed for the sightseeing of Old Delhi which includes Jama Masjid, Red Fort,
+                          Gandhi memorial, Raj Ghat. You also can enjoy the light & sound show at Red Fort in the evening etc.
+                          Overnight stay at the hotel.</b></li><br>
+
+
+                       <h2 style="color:brown"><b>Day 3: </b> DELHI - JAIPUR</h2>
+                      <li>  <b> Breakfast at the hotel and drive to Jaipur.
+                          On arrival at Jaipur check-in at hotel. Overnight stay at hotel </b></li><br>
+
+
+                       <h2 style="color:brown"><b>Day 4: </b>Jaipur</h2>
+                      <li>  <b> After breakfast go for an excursion to Amer Fort. Ascend the fort on Elephants back.
+                          In the afternoon take tour of the city visiting the City palace, the Jantar Mantar (observatory),
+                          the Palace of Winds and the Birla temple. In the evening check into a hotel.
+                          Stay overnight at the hotel.</b></li><br>
+
+
+                       <h2 style="color:brown"><b>Day 5: </b>JAIPUR - FATEHPUR SIKRI - AGRA</h2>
+                      <li>  <b>Breakfast at the hotel and drive to Agra, en-route visit Fatehpur Sikri.
+                          Fatehpur Sikri was built during 1571 and 1585.
+                          Fatehpur Sikri is one of the finest examples of Mughal architectural splendour at its height.
+                          Later continue drive to Agra. On arrival at Agra check-in at hotel.
+                          Afternoon visit Agra Fort. Overnight stay at hotel.
+                          Agra Fort, which has the Pearl Mosque, Diwan-e-am (the hall of public audience) and
+                          Diwan-e-Khas (the hall of private audience). </b></li><br>
+
+
+
+                       <h2 style="color:brown"><b>Day 6: </b>AGRA - DELHI </h2>
+                      <li>  <b>  Breakfast at the hotel. Morning visit the famous Taj Mahal.
+                          Afternoon drive to Delhi. On arrival at Delhi check-in at hotel. Overnight stay at hotel.
+                          Taj Mahal built by Mughal Emperor Shah Jahan as a memorial to his queen Mumtaz Mahal,
+                          made out of white marble took 22 years to complete (1630-1652 AD). </b></li><br>
+
+
+
+                       <h2 style="color:brown"><b>Day 7: </b>DELHI DEPART</h2>
+                      <li>  <b>Breakfast at the hotel and transfer to international airport to connect flight for onward destination.</b></li><br>
+
+
+                  </ul>
+
+
+			  </div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+
+
+
+
+		<div class="footer">
+			<div class="container">
+				<div class="row">
+
+					<div class="col-md-3">
+						<ul class="footer_box">
+							<h4>QUICK LINKS</h4>
+							<li><a href="/myapp/index/">HOME</a></li>
+							<li><a href="/myapp/contact_lo/">ABOUT US</a></li>
+						</ul>
+					</div>
+
+					<div class="col-md-3">
+						<ul class="footer_box">
+							<h4>Destinations</h4>
+							<li><a href="/myapp/varanasi_lo/">VARANASI</a></li>
+							<li><a href="/myapp/rajasthan_lo/">RAJASTHAN</a></li>
+							<li><a href="/myapp/kashmir_lo/">KASHMIR</a></li>
+							<li><a href="/myapp/manali_lo/">MANALI</a></li>
+						</ul>
+					</div>
+
+
+					<div class="col-md-3">
+						<ul class="footer_box">
+							<h4>Customer Support</h4>
+							<li><a href="/myapp/contact_lo/">CONTACT US</a></li>
+
+						</ul>
+					</div>
+
+
+
+					<div class="col-md-3">
+						<ul class="footer_box">
+							<h4>Newsletter</h4>
+							<div class="footer_search">
+				    		   <form>
+				    			<input type="text" value="Enter your email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Enter your email';}">
+				    			<input type="submit" value="Go">
+				    		   </form>
+					        </div>
+							<ul class="social">
+							  <li class="facebook"><a href="#"><span> </span></a></li>
+							  <li class="twitter"><a href="#"><span> </span></a></li>
+							  <li class="instagram"><a href="#"><span> </span></a></li>
+							  <li class="pinterest"><a href="#"><span> </span></a></li>
+							  <li class="youtube"><a href="#"><span> </span></a></li>
+						    </ul>
+
+						</ul>
+					</div>
+				</div>
+				<div class="row footer_bottom">
+				    <div class="copy">
+			           <p>© 2019 Template by <a href="/myapp/index/" target="_blank">tripplanner</a></p>
+		            </div>
+   				</div>
+			</div>
+		</div>
+	  </div>
+</body>
+</html>

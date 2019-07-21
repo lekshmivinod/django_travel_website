@@ -1,0 +1,325 @@
+
+
+<!DOCTYPE HTML>
+<html>
+<head>
+	{% load static %}
+<title>TRIP PLANNER</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+<link href="{% static 'css/bootstrap.css' %}" rel='stylesheet' type='text/css' />
+<link href="{% static 'css/style.css' %}" rel='stylesheet' type='text/css' />
+<link href="{% static 'css/style1.css' %}" rel='stylesheet' type='text/css' />
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<!--<script src="js/jquery.easydropdown.js"></script>-->
+<!--start slider -->
+<link rel="stylesheet" href="{% static 'css/fwslider.css' %}" media="all">
+<script src="{% static 'js/jquery-ui.min.js' %}"></script>
+<script src="{% static 'js/fwslider.js' %}"></script>
+<!--end slider -->
+<script type="text/javascript">
+        $(document).ready(function() {
+            $(".dropdown img.flag").addClass("flagvisibility");
+
+            $(".dropdown dt a").click(function() {
+                $(".dropdown dd ul").toggle();
+            });
+
+            $(".dropdown dd ul li a").click(function() {
+                var text = $(this).html();
+                $(".dropdown dt a span").html(text);
+                $(".dropdown dd ul").hide();
+                $("#result").html("Selected value is: " + getSelectedValue("sample"));
+            });
+
+            function getSelectedValue(id) {
+                return $("#" + id).find("dt a span.value").html();
+            }
+
+            $(document).bind('click', function(e) {
+                var $clicked = $(e.target);
+                if (! $clicked.parents().hasClass("dropdown"))
+                    $(".dropdown dd ul").hide();
+            });
+
+
+            $("#flagSwitcher").click(function() {
+                $(".dropdown img.flag").toggleClass("flagvisibility");
+            });
+        });
+     </script>
+</head>
+<body>
+	<div class="header">
+		<div class="container">
+			<div class="row">
+			  <div class="col-md-12">
+				 <div class="header-left">
+					 <div class="logo">
+						<a href="/myapp/index/"><img src="{% static 'images/logo.png' %}" alt=""/></a>
+					 </div>
+					 <div class="menu">
+						    <ul class="nav" id="nav">
+
+								<li><a href="/myapp/loggedin/">Home</a></li>
+						    	<li><a href="/myapp/packages/">Tour Packages</a></li>
+								<li class="current"><a href="/myapp/hotdeals/">Hot Deals</a></li>
+                                <li><a href="/myapp/contact/">Contact Us</a></li>
+								<li><a href="/myapp/index/">Logout</a></li>
+
+								<div class="clear"></div>
+							</ul>
+
+							<script type="text/javascript" src="{% static 'js/responsive-nav.js' %}"></script>
+					 </div>
+	    		    <div class="clear"></div>
+	    	    </div>
+	            <div class="header_right">
+	    		  <!-- start search-->
+				      <div class="search-box">
+							<div id="sb-search" class="sb-search">
+								<form>
+									<input class="sb-search-input" placeholder="Enter your search term..." type="search" name="search" id="search">
+									<input class="sb-search-submit" type="submit" value="">
+									<span class="sb-icon-search"> </span>
+								</form>
+							</div>
+						</div>
+						<!----search-scripts---->
+						<script src="{% static 'js/classie.js' %}"></script>
+						<script src="{% static 'js/uisearch.js' %}"></script>
+						<script>
+							new UISearch( document.getElementById( 'sb-search' ) );
+						</script>
+						<!----//search-scripts---->
+
+						  <div class="clear"></div>
+
+		           <div class="clear"></div>
+	       </div>
+	      </div>
+		 </div>
+	    </div>
+	  </div>
+
+	<div class="banner">
+	<!-- start slider -->
+       <div id="fwslider">
+         <div class="slider_container">
+            <div class="slide">
+                <!-- Slide image -->
+               <img src="{% static 'images/mysore.jpg' %}" class="img-responsive" alt=""/>
+                <!-- /Slide image -->
+                <!-- Texts container -->
+                <div class="slide_content">
+                    <div class="slide_content_wrap">
+                        <!-- Text title -->
+                        <h1 class="title">Explore South India</h1>
+                        <!-- /Text title -->
+                        <!--<div class="button"><a href="#">See Details</a></div>-->
+                    </div>
+                </div>
+               <!-- /Texts container -->
+            </div>
+            <!-- /Duplicate to create more slides -->
+			 <div><br></div>
+
+
+            <div class="slide">
+               <img src="{% static 'images/kathakali.jpg' %}" class="img-responsive" alt=""/>
+                <div class="slide_content">
+                    <div class="slide_content_wrap">
+                        <h1 class="title">Explore South India</h1>
+                       	<!--<div class="button"><a href="#">See Details</a></div>-->
+                    </div>
+                </div>
+            </div>
+
+			 <div class="slide">
+               <img src="{% static 'images/mahabalipuram.jpg' %}" class="img-responsive" alt=""/>
+                <div class="slide_content">
+                    <div class="slide_content_wrap">
+                        <h1 class="title">Explore South India</h1>
+                       	<!--<div class="button"><a href="#">See Details</a></div>-->
+                    </div>
+                </div>
+            </div>
+            <!--/slide -->
+        </div>
+        <div class="timers"></div>
+        <div class="slidePrev"><span></span></div>
+        <div class="slideNext"><span></span></div>
+       </div>
+       <!--/slider -->
+      </div>
+
+      	<div class="content-bottom">
+		<div class="container">
+			<div class="row content_bottom-text">
+			  <div class="col-md-7">
+				  <h3 style="color:green" ><b>11 Days - Karnataka and Kerala Tour</b></h3>
+				<!--<h3 style="color:black">South India Tour</h3>-->
+				<p style="color:black"><b>The charm of South India can be best defined through mesmerising hill stations, majestic temples, lush green forests and best beaches.
+					These four naturally occurring and diverse terrains make up the Southern India.
+					South India is famous for its vibrant culture, delectable food, among other manmade marvels.
+					One can rejuvenate their senses by visiting serene places like Kerala, Pondicherry, Ooty, Mysore and more.
+					The delicate, intrinsic and detailed architecture are unparalleled and cannot be found anywhere else.</b></p><br>
+				<p style="color:black"><b>Travelogy India makes your visit memorable one by offering one of the most pocket friendly South India tour packages.
+					You can select a package that suits your needs the most by browsing through our impressive itineraries like temple visits, sightseeing, authentic spa ayurveda and relaxing your days away on the pure beaches.
+				</b></p><br>
+				<p style="color:black"><b>Your South India trip will remain incomplete without a visit to the god’s own country Kerala.
+					The vast diversity offers several choices for a curious traveller.
+					Karnataka, Tamilnadu, Andhra Pradesh, Andaman Nicobar Islands and Lakshadweep are ranks in the top of the list of South India.
+
+				</b></p><br>
+
+
+
+
+                  <h2 style="color:green"><b>ITINERARY</b></h2>
+                  <ul style="list-style-type:none;">
+                      <h2 style="color:brown"><b>Day 1: </b>GUWAHATI</h2>
+                      <li>  <b>On arrival at Guwahati Airport/Guwahati railway Station,
+                      our representative will be there to welcome you and transfer you to your already booked hotel.
+                      The evening is free at leisure for shopping.
+                      An overnight stay in the hotel in Guwahati.</b></li><br>
+
+                      <h2 style="color:brown"><b>Day 2: </b>GUWAHATI-BOMDILA</h2>
+                      <li>  <b>Today after an early breakfast in the morning, we will drive towards Bomdila.
+                          On arrival check in at the hotel in Bomdila for an overnight stay.</b></li><br>
+
+
+                       <h2 style="color:brown"><b>Day 3: </b> BOMDILA-TAWANG</h2>
+                      <li>  <b>In the morning after breakfast, we will proceed for sightseeing of Bomdila.
+                          Later, we will drive to Tawang. Enjoy an overnight stay at the hotel in Tawang. </b></li><br>
+
+
+                       <h2 style="color:brown"><b>Day 4: </b>TAWANG</h2>
+                      <li>  <b>After breakfast in the morning, we will proceed for the local sightseeing tour in Tawang.
+                          We will ne visiting the Tawang Monastery, which is around 400 yrs old and is the is the 6th birth place of Dalai Lama Galden Namgyel Lhatse.
+                          The Tawang Gompa is a major attraction of the town with a commanding view of the splendid valleys beyond.
+                          Also, we will be visiting the War memorial. The evening is free at leisure for shopping.
+                          Take pleasure of an overnight stay at the hotel in Tawang.</b></li><br>
+
+
+                       <h2 style="color:brown"><b>Day 5: </b>TAWANG - DIRANG</h2>
+                      <li>  <b>In the morning after breakfast, we will drive to Dirang (140Km/6hrs).
+                          On arrival, we will proceed for the local sightseeing tour in Dirang.
+                          Later, check in at the hotel for an overnight stay.</b></li><br>
+
+
+
+                       <h2 style="color:brown"><b>Day 6: </b>DIRANG SIGHTSEEING - NAMERI NATIONAL PARK</h2>
+                      <li>  <b>After breakfast in the morning, we will proceed for the local sightseeing in
+                          Dirang and later drive straight to Nameri Eco Camp (170/6Hrs).
+                          Enjoy a night stay at the camp in Nameri.</b></li><br>
+
+
+                       <h2 style="color:brown"><b>Day 7: </b>NAMERI - KAZIRANGA NATIONAL PARK</h2>
+                      <li>  <b>Today after breakfast in the morning, we will be visiting the Nameri National Park.
+                          Later, we will drive to Kaziranga (80Km/2Hrs.), the homeland of the Great India one horned Rhinoceros".
+                          On arrival, check in at your pre-booked hotel. The evening is free at leisure.
+                          An overnight stay in Kaziranga. </b></li><br>
+
+
+                       <h2 style="color:brown"><b>Day 8: </b>KAZIRANGA NATIONAL PARK</h2>
+                      <li>  <b>  Today early in the morning, we will leave to take pleasure of the elephant ride at the Kaziranga National Park.
+                          The actual attraction of this national park is a broad diversity of wildlife beauty.
+                          The chief riches trove of Kaziranga is vast one horned Rhinoceros,
+                          but it is also a house to other species of flora & Fauna for instance.
+                          Kaziranga is also familiar as a significant Bird life watching point of bird life.
+                          Thereafter, we will proceed for a Jeep Safari in the National Park.
+                           Enjoy an overnight stay at the resort in Kaziranga.</b></li><br>
+
+
+                       <h2 style="color:brown"><b>Day 9: </b>KAZIRANGA NATIONAL PARK - GUWAHATI</h2>
+                      <li>  <b>In the morning, we will drive to Guwahati (220km/5Hrs.) On reaching, check in at the hotel.
+                          The evening is free at leisure for shopping. An overnight stay at the hotel in Guwahati. </b></li><br>
+
+                      <h2 style="color:brown"><b>Day 10: </b>GUWAHATI DEPARTURE</h2>
+                      <li>  <b>In the morning, we will drive to Guwahati (220km/5Hrs.) On reaching, check in at the hotel.
+                          The evening is free at leisure for shopping. An overnight stay at the hotel in Guwahati. </b></li><br>
+
+
+
+
+ </ul>
+				  <button type="submit" class="btn button-w3layouts" style="color:brown">BOOK NOW</button>
+
+
+
+
+
+
+
+
+
+			  </div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+
+
+
+
+
+		<div class="footer">
+			<div class="container">
+				<div class="row">
+
+					<div class="col-md-3">
+						<ul class="footer_box">
+								<h4>HotDeals</h4>
+
+							<li><a href="/myapp/VARANASI/">Varanasi</a></li>
+							<li><a href="/myapp/RAJASTHAN/">Rajasthan</a></li>
+							<li><a href="/myapp/KASHMIR/">Kashmir</a></li>
+							<li><a href="/myapp/MANALI/">Manali</a></li>
+
+						</ul>
+					</div>
+					<div class="col-md-3">
+						<ul class="footer_box">
+							<h4>Customer Support</h4>
+							<li><a href="/myapp/contact/">Contact Us</a></li>
+
+						</ul>
+					</div>
+					<div class="col-md-3">
+						<ul class="footer_box">
+							<h4>Newsletter</h4>
+							<div class="footer_search">
+				    		   <form>
+				    			<input type="text" value="Enter your email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Enter your email';}">
+				    			<input type="submit" value="Go">
+				    		   </form>
+					        </div>
+							<ul class="social">
+							  <li class="facebook"><a href="#"><span> </span></a></li>
+							  <li class="twitter"><a href="#"><span> </span></a></li>
+							  <li class="instagram"><a href="#"><span> </span></a></li>
+							  <li class="pinterest"><a href="#"><span> </span></a></li>
+							  <li class="youtube"><a href="#"><span> </span></a></li>
+						    </ul>
+
+						</ul>
+					</div>
+                    </div>
+				</div>
+
+			</div>
+		</div>
+
+</body>
+</html>

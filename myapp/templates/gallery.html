@@ -1,0 +1,353 @@
+
+
+<!DOCTYPE HTML>
+<html>
+<head>
+	{% load static %}
+<title>TRIP PLANNER</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+<link href="{% static 'css/bootstrap.css' %}" rel='stylesheet' type='text/css' />
+<link href="{% static 'css/style.css' %}" rel='stylesheet' type='text/css' />
+<link href="{% static 'css/style1.css' %}" rel='stylesheet' type='text/css' />
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<!--<script src="js/jquery.easydropdown.js"></script>-->
+<!--start slider -->
+<link rel="stylesheet" href="{% static 'css/fwslider.css' %}" media="all">
+<script src="{% static 'js/jquery-ui.min.js' %}"></script>
+<script src="{% static 'js/fwslider.js' %}"></script>
+<!--end slider -->
+<script type="text/javascript">
+        $(document).ready(function() {
+            $(".dropdown img.flag").addClass("flagvisibility");
+
+            $(".dropdown dt a").click(function() {
+                $(".dropdown dd ul").toggle();
+            });
+
+            $(".dropdown dd ul li a").click(function() {
+                var text = $(this).html();
+                $(".dropdown dt a span").html(text);
+                $(".dropdown dd ul").hide();
+                $("#result").html("Selected value is: " + getSelectedValue("sample"));
+            });
+
+            function getSelectedValue(id) {
+                return $("#" + id).find("dt a span.value").html();
+            }
+
+            $(document).bind('click', function(e) {
+                var $clicked = $(e.target);
+                if (! $clicked.parents().hasClass("dropdown"))
+                    $(".dropdown dd ul").hide();
+            });
+
+
+            $("#flagSwitcher").click(function() {
+                $(".dropdown img.flag").toggleClass("flagvisibility");
+            });
+        });
+     </script>
+</head>
+<body>
+	<div class="header">
+		<div class="container">
+			<div class="row">
+			  <div class="col-md-12">
+				 <div class="header-left">
+					 <div class="logo">
+						<a href="/myapp/index/"><img src="{% static 'images/logo.png' %}" alt=""/></a>
+					 </div>
+					 <div class="menu">
+						    <ul class="nav" id="nav">
+
+								<li><a href="/myapp/index/">Home</a></li>
+						    	<li class="current"><a href="/myapp/gallery/">Gallery</a></li>
+								<li><a href="/myapp/contact_lo/">Contact Us</a></li>
+								<li><a href="/myapp/register/">Register</a></li>
+								<li><a href="/myapp/login/">Sign In</a></li>
+
+
+								<div class="clear"></div>
+							</ul>
+
+							<script type="text/javascript" src="{% static 'js/responsive-nav.js' %}"></script>
+					 </div>
+	    		    <div class="clear"></div>
+	    	    </div>
+	            <div class="header_right">
+	    		  <!-- start search-->
+				      <div class="search-box">
+							<div id="sb-search" class="sb-search">
+								<form>
+									<input class="sb-search-input" placeholder="Enter your search term..." type="search" name="search" id="search">
+									<input class="sb-search-submit" type="submit" value="">
+									<span class="sb-icon-search"> </span>
+								</form>
+							</div>
+						</div>
+						<!----search-scripts---->
+						<script src="{% static 'js/classie.js' %}"></script>
+						<script src="{% static 'js/uisearch.js' %}"></script>
+						<script>
+							new UISearch( document.getElementById( 'sb-search' ) );
+						</script>
+						<!----//search-scripts---->
+
+						  <div class="clear"></div>
+
+		           <div class="clear"></div>
+	       </div>
+	      </div>
+		 </div>
+	    </div>
+	  </div>
+
+
+
+
+
+
+	  <div class="features">
+		<div class="container">
+			<h3 class="m_3">Explore India</h3>
+			<div class="close_but"><i class="close1"> </i></div>
+			  <div class="row">
+				<div class="col-md-3 top_box">
+				  <div class="view view-ninth"><a href="/myapp/login/">
+                    <img src="{% static 'images/pic1.jpg' %}" class="img-responsive" alt=""/>
+                    <div class="mask mask-1"> </div>
+                    <div class="mask mask-2"> </div>
+                      <div class="content">
+                        <h2>South India</h2>
+						  <div class="center"><a href="/myapp/login/">LOGIN TO SEE THE PACKAGE</a></div>
+
+
+						  <!--<p>Palaces,Forts,Deserts</p>-->
+                      </div>
+                   </a>
+                  </div>
+                  <!--<h4 class="m_4"><a href="#"></a></h4>-->
+                  <!--<p class="m_5">claritatem insitam</p>-->
+					<!--<div class="center"><a href="#">See Details</a></div>-->
+                </div>
+                <div class="col-md-3 top_box">
+					<div class="view view-ninth"><a href="/myapp/kashmir_lo">
+                    <img src="{% static 'images/pic2.jpg' %}" class="img-responsive" alt=""/>
+                    <div class="mask mask-1"> </div>
+                    <div class="mask mask-2"> </div>
+                      <div class="content">
+                        <h2>Kashmir</h2>
+						  <div class="center"><a href="/myapp/kashmir_lo">Mountains...</a></div>
+
+						  <!--<p>Monastries,Trecking...</p>-->
+                      </div>
+                    </a> </div>
+
+
+
+
+				</div>
+				<div class="col-md-3 top_box">
+					<div class="view view-ninth"><a href="/myapp/login/">
+                    <img src="{% static 'images/pic3.jpg' %}" class="img-responsive" alt=""/>
+                    <div class="mask mask-1"> </div>
+                    <div class="mask mask-2"> </div>
+                      <div class="content">
+                        <h2>Goa</h2>
+						  <div class="center"><a href="/myapp/login/">LOGIN TO SEE THE PACKAGE</a></div>
+
+						  <!--<p>Backwaters,Ayurveda...</p>-->
+
+                      </div>
+                    </a> </div>
+					 <div>
+					  <br>
+				  </div>
+					<!--<div class="center"><a href="#">See Details</a></div>-->
+
+				</div>
+				<div class="col-md-3 top_box1">
+					<div class="view view-ninth"><a href="/myapp/manali_lo">
+                    <img src="{% static 'images/manalio.jpg' %}" class="img-responsive" alt=""/>
+                    <div class="mask mask-1"> </div>
+                    <div class="mask mask-2"> </div>
+                      <div class="content">
+                        <h2>Manali</h2>
+						  <div class="center"><a href="/myapp/manali_lo">Adventure...</a></div>
+
+						  <!--<p>Festivals,Colors,Palaces....</p>-->
+                      </div>
+                     </a> </div>
+					 <div>
+					  <br>
+				  </div>
+                   <!--<h4 class="m_4"><a href="#">nohftftfr</a></h4>-->
+                   <!--<p class="m_5">claritatem</p>-->
+					<!--<div class="center"><a href="#">See Details</a></div>-->
+</div>
+				  <!--<div>-->
+					  <!--<br>-->
+				  <!--</div>-->
+
+			<!--</div>-->
+		 <!--</div>-->
+	    <!--</div>-->
+	<!--<div class="features">-->
+		<!--<div class="container">-->
+			<!--<h3 class="m_3">Explore India</h3>-->
+			<!--<div class="close_but"><i class="close1"> </i></div>-->
+			  <!--<div class="row">-->
+				<div class="col-md-3 top_box">
+				  <div class="view view-ninth"><a href="/myapp/varanasi_lo">
+                    <img src="{% static 'images/pic5.jpg' %}" class="img-responsive" alt=""/>
+                    <div class="mask mask-1"> </div>
+                    <div class="mask mask-2"> </div>
+                      <div class="content">
+                        <h2>Varanasi</h2>
+						  <div class="center"><a href="/myapp/varanasi_lo">Divine,peaceful...</a></div>
+
+						  <!--<p>Palaces,Forts,Deserts</p>-->
+                      </div>
+                   </a>
+                  </div>
+                  <!--<h4 class="m_4"><a href="#"></a></h4>-->
+                  <!--<p class="m_5">claritatem insitam</p>-->
+					<!--<div class="center"><a href="#">See Details</a></div>-->
+                </div>
+                <div class="col-md-3 top_box">
+					<div class="view view-ninth"><a href="/myapp/rajasthan_lo">
+                    <img src="{% static 'images/pic6.jpg' %}" class="img-responsive" alt=""/>
+                    <div class="mask mask-1"> </div>
+                    <div class="mask mask-2"> </div>
+                      <div class="content">
+                        <h2>Rajasthan</h2>
+						  <div class="center"><a href="/myapp/rajasthan_lo">Forts,Palaces...</a></div>
+
+						  <!--<p>Monastries,Trecking...</p>-->
+                      </div>
+                    </a> </div>
+                   <!--<h4 class="m_4"><a href="#">nostrur</a></h4>-->
+                   <!--<p class="m_5">claritatem insitam</p>-->
+					<!--<div class="center"><a href="#">See Details</a></div>-->
+
+				</div>
+				<div class="col-md-3 top_box">
+					<div class="view view-ninth"><a href="/myapp/login">
+                    <img src="{% static 'images/pic7.jpg' %}" class="img-responsive" alt=""/>
+                    <div class="mask mask-1"> </div>
+                    <div class="mask mask-2"> </div>
+                      <div class="content">
+                        <h2>North India</h2>
+						  <div class="center"><a href="/myapp/login">LOGIN TO SEE THE PACKAGE</a></div>
+						  <!--<p>Backwaters,Ayurveda...</p>-->
+
+                      </div>
+                    </a> </div>
+					<!--<div class="center"><a href="#">See Details</a></div>-->
+
+				</div>
+				<div class="col-md-3 top_box1">
+					<div class="view view-ninth"><a href="/myapp/login/">
+                    <img src="{% static 'images/pic8.jpg' %}" class="img-responsive" alt=""/>
+                    <div class="mask mask-1"> </div>
+                    <div class="mask mask-2"> </div>
+                      <div class="content">
+                        <h2>North East India</h2>
+						  <div class="center"><a href="/myapp/login/">LOGIN TO SEE THE PACKAGE</a></div>
+
+						  <!--<p>Festivals,Colors,Palaces....</p>-->
+                      </div>
+						<div><br><br></div>
+                     </a> </div>
+
+
+</div>
+			</div>
+		</div>
+
+
+
+
+
+
+
+
+		<div class="footer">
+			<div class="container">
+				<div class="row">
+
+					<div class="col-md-3">
+						<ul class="footer_box">
+							<h4>QUICK LINKS</h4>
+							<li><a href="/myapp/index/">HOME</a></li>
+							<li><a href="/myapp/contact_lo/">ABOUT US</a></li>
+						</ul>
+					</div>
+
+					<div class="col-md-3">
+						<ul class="footer_box">
+							<h4>Destinations</h4>
+							<li><a href="/myapp/varanasi_lo/">VARANASI</a></li>
+							<li><a href="/myapp/rajasthan_lo/">RAJASTHAN</a></li>
+							<li><a href="/myapp/kashmir_lo/">KASHMIR</a></li>
+							<li><a href="/myapp/manali_lo/">MANALI</a></li>
+						</ul>
+					</div>
+
+
+					<div class="col-md-3">
+						<ul class="footer_box">
+							<h4>Customer Support</h4>
+							<li><a href="/myapp/contact_lo/">CONTACT US</a></li>
+
+						</ul>
+					</div>
+
+
+
+					<div class="col-md-3">
+						<ul class="footer_box">
+							<h4>Newsletter</h4>
+							<div class="footer_search">
+				    		   <form>
+				    			<input type="text" value="Enter your email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Enter your email';}">
+				    			<input type="submit" value="Go">
+				    		   </form>
+					        </div>
+							<ul class="social">
+							  <li class="facebook"><a href="#"><span> </span></a></li>
+							  <li class="twitter"><a href="#"><span> </span></a></li>
+							  <li class="instagram"><a href="#"><span> </span></a></li>
+							  <li class="pinterest"><a href="#"><span> </span></a></li>
+							  <li class="youtube"><a href="#"><span> </span></a></li>
+						    </ul>
+
+						</ul>
+					</div>
+				</div>
+				<div class="row footer_bottom">
+				    <div class="copy">
+			           <p>© 2019 Template by <a href="/myapp/index/" target="_blank">tripplanner</a></p>
+		            </div>
+   				</div>
+			</div>
+		</div>
+	  </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

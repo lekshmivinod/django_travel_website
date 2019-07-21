@@ -1,0 +1,201 @@
+
+
+<!DOCTYPE HTML>
+<html>
+<head>
+	{% load static %}
+<title>TRIP PLANNER</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+<link href="{% static 'css/bootstrap.css' %}" rel='stylesheet' type='text/css' />
+<link href="{% static 'css/style.css' %}" rel='stylesheet' type='text/css' />
+<link href="{% static 'css/style1.css' %}" rel='stylesheet' type='text/css' />
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<!--<script src="js/jquery.easydropdown.js"></script>-->
+<!--start slider -->
+<link rel="stylesheet" href="{% static 'css/fwslider.css' %}" media="all">
+<script src="{% static 'js/jquery-ui.min.js' %}"></script>
+<script src="{% static 'js/fwslider.js' %}"></script>
+<!--end slider -->
+<script type="text/javascript">
+        $(document).ready(function() {
+            $(".dropdown img.flag").addClass("flagvisibility");
+
+            $(".dropdown dt a").click(function() {
+                $(".dropdown dd ul").toggle();
+            });
+
+            $(".dropdown dd ul li a").click(function() {
+                var text = $(this).html();
+                $(".dropdown dt a span").html(text);
+                $(".dropdown dd ul").hide();
+                $("#result").html("Selected value is: " + getSelectedValue("sample"));
+            });
+
+            function getSelectedValue(id) {
+                return $("#" + id).find("dt a span.value").html();
+            }
+
+            $(document).bind('click', function(e) {
+                var $clicked = $(e.target);
+                if (! $clicked.parents().hasClass("dropdown"))
+                    $(".dropdown dd ul").hide();
+            });
+
+
+            $("#flagSwitcher").click(function() {
+                $(".dropdown img.flag").toggleClass("flagvisibility");
+            });
+        });
+     </script>
+</head>
+<body>
+	<div class="header">
+		<div class="container">
+			<div class="row">
+			  <div class="col-md-12">
+				 <div class="header-left">
+					 <div class="logo">
+						<a href="/myapp/index/"><img src="{% static 'images/logo.png' %}" alt=""/></a>
+					 </div>
+					 <div class="menu">
+						    <ul class="nav" id="nav">
+
+								<li><a href="/myapp/loggedin/">Home</a></li>
+						    	<li class="current"><a href="/myapp/packages/">Tour Packages</a></li>
+								<li><a href="/myapp/hotdeals/">Hot Deals</a></li>
+                                <li><a href="/myapp/contact/">Contact Us</a></li>
+								<li><a href="/myapp/index/">Logout</a></li>
+
+								<div class="clear"></div>
+							</ul>
+
+							<script type="text/javascript" src="{% static 'js/responsive-nav.js' %}"></script>
+					 </div>
+	    		    <div class="clear"></div>
+	    	    </div>
+	            <div class="header_right">
+	    		  <!-- start search-->
+				      <div class="search-box">
+							<div id="sb-search" class="sb-search">
+								<form>
+									<input class="sb-search-input" placeholder="Enter your search term..." type="search" name="search" id="search">
+									<input class="sb-search-submit" type="submit" value="">
+									<span class="sb-icon-search"> </span>
+								</form>
+							</div>
+						</div>
+						<!----search-scripts---->
+						<script src="{% static 'js/classie.js' %}"></script>
+						<script src="{% static 'js/uisearch.js' %}"></script>
+						<script>
+							new UISearch( document.getElementById( 'sb-search' ) );
+						</script>
+						<!----//search-scripts---->
+
+						  <div class="clear"></div>
+
+		           <div class="clear"></div>
+	       </div>
+	      </div>
+		 </div>
+	    </div>
+	  </div>
+
+
+
+<section id="table" style="padding:30px">
+<h1 style="text-align:center"> <b>TOUR PACKAGES</b></h1>
+
+
+<table class="table table-bordered table-hover" style="padding:25px">
+    <thead class="alert-warning">
+    <tr>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Price</th>
+        <th>Summary</th>
+        <th>Details</th>
+		<th>Book Now</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    {% for dr in object_list %}
+    <tr>
+    <td> {{ dr.title }}</td>
+    <td> {{ dr.description }}</td>
+    <td> {{ dr.price }}</td>
+    <td> {{ dr.summary }}</td>
+     <td>  <a class="btn button-w3layouts" href="/myapp/{{ dr.title }}/">ITENERARY</a></td>
+     <td>  <a class="btn button-w3layouts" href="/myapp/payment/">PAY</a></td>
+
+
+
+
+    {% endfor %}
+    </tr></tbody>
+</table>
+
+</section>
+
+        <div class="footer">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-3">
+						<ul class="footer_box">
+							<h4>QUICK LINKS</h4>
+							<li><a href="/myapp/loggedin/">HOME</a></li>
+							<li><a href="/myapp/contact/">ABOUT US</a></li>
+						</ul>
+					</div>
+					<div class="col-md-3">
+						<ul class="footer_box">
+							<h4>Destinations</h4>
+							<li><a href="/myapp/VARANASI/">Varanasi</a></li>
+							<li><a href="/myapp/RAJASTHAN/">Rajasthan</a></li>
+							<li><a href="/myapp/KASHMIR/">Kashmir</a></li>
+							<li><a href="/myapp/MANALI/">Manali</a></li>
+						</ul>
+					</div>
+					<div class="col-md-3">
+						<ul class="footer_box">
+							<h4>Customer Support</h4>
+							<li><a href="/myapp/contact/">Contact Us</a></li>
+
+						</ul>
+					</div>
+					<div class="col-md-3">
+						<ul class="footer_box">
+							<h4>Newsletter</h4>
+							<div class="footer_search">
+				    		   <form>
+				    			<input type="text" value="Enter your email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Enter your email';}">
+				    			<input type="submit" value="Go">
+				    		   </form>
+					        </div>
+							<ul class="social">
+							  <li class="facebook"><a href="#"><span> </span></a></li>
+							  <li class="twitter"><a href="#"><span> </span></a></li>
+							  <li class="instagram"><a href="#"><span> </span></a></li>
+							  <li class="pinterest"><a href="#"><span> </span></a></li>
+							  <li class="youtube"><a href="#"><span> </span></a></li>
+						    </ul>
+		   				</ul>
+					</div>
+				</div>
+				<div class="row footer_bottom">
+				    <div class="copy">
+			           <p>© 2019 Template by <a href="#" target="_blank">tripplanner</a></p>
+		            </div>
+   				</div>
+			</div>
+		</div>
+</body>
+</html>

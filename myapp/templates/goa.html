@@ -1,0 +1,293 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+	{% load static %}
+<title>TRIP PLANNER</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+<link href="{% static 'css/bootstrap.css' %}" rel='stylesheet' type='text/css' />
+<link href="{% static 'css/style.css' %}" rel='stylesheet' type='text/css' />
+<link href="{% static 'css/style1.css' %}" rel='stylesheet' type='text/css' />
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<!--<script src="js/jquery.easydropdown.js"></script>-->
+<!--start slider -->
+<link rel="stylesheet" href="{% static 'css/fwslider.css' %}" media="all">
+<script src="{% static 'js/jquery-ui.min.js' %}"></script>
+<script src="{% static 'js/fwslider.js' %}"></script>
+<!--end slider -->
+<script type="text/javascript">
+        $(document).ready(function() {
+            $(".dropdown img.flag").addClass("flagvisibility");
+
+            $(".dropdown dt a").click(function() {
+                $(".dropdown dd ul").toggle();
+            });
+
+            $(".dropdown dd ul li a").click(function() {
+                var text = $(this).html();
+                $(".dropdown dt a span").html(text);
+                $(".dropdown dd ul").hide();
+                $("#result").html("Selected value is: " + getSelectedValue("sample"));
+            });
+
+            function getSelectedValue(id) {
+                return $("#" + id).find("dt a span.value").html();
+            }
+
+            $(document).bind('click', function(e) {
+                var $clicked = $(e.target);
+                if (! $clicked.parents().hasClass("dropdown"))
+                    $(".dropdown dd ul").hide();
+            });
+
+
+            $("#flagSwitcher").click(function() {
+                $(".dropdown img.flag").toggleClass("flagvisibility");
+            });
+        });
+     </script>
+</head>
+<body>
+	<div class="header">
+		<div class="container">
+			<div class="row">
+			  <div class="col-md-12">
+				 <div class="header-left">
+					 <div class="logo">
+						<a href="/myapp/index/"><img src="{% static 'images/logo.png' %}" alt=""/></a>
+					 </div>
+					 <div class="menu">
+						    <ul class="nav" id="nav">
+
+								<li><a href="/myapp/loggedin/">Home</a></li>
+						    	<li class="current"><a href="/myapp/packages/">Tour Packages</a></li>
+								<li><a href="/myapp/hotdeals/">Hot Deals</a></li>
+                                <li><a href="/myapp/contact/">Contact Us</a></li>
+								<li><a href="/myapp/index/">Logout</a></li>
+
+								<div class="clear"></div>
+							</ul>
+
+							<script type="text/javascript" src="{% static 'js/responsive-nav.js' %}"></script>
+					 </div>
+	    		    <div class="clear"></div>
+	    	    </div>
+	            <div class="header_right">
+	    		  <!-- start search-->
+				      <div class="search-box">
+							<div id="sb-search" class="sb-search">
+								<form>
+									<input class="sb-search-input" placeholder="Enter your search term..." type="search" name="search" id="search">
+									<input class="sb-search-submit" type="submit" value="">
+									<span class="sb-icon-search"> </span>
+								</form>
+							</div>
+						</div>
+						<!----search-scripts---->
+						<script src="{% static 'js/classie.js' %}"></script>
+						<script src="{% static 'js/uisearch.js' %}"></script>
+						<script>
+							new UISearch( document.getElementById( 'sb-search' ) );
+						</script>
+						<!----//search-scripts---->
+
+						  <div class="clear"></div>
+
+		           <div class="clear"></div>
+	       </div>
+	      </div>
+		 </div>
+	    </div>
+	  </div>
+
+
+	<div class="banner">
+	<!-- start slider -->
+       <div id="fwslider">
+         <div class="slider_container">
+            <div class="slide">
+                <!-- Slide image -->
+               <img src="{% static 'images/goa2.jpg' %}" class="img-responsive" alt=""/>
+                <!-- /Slide image -->
+                <!-- Texts container -->
+                <div class="slide_content">
+                    <div class="slide_content_wrap">
+                        <!-- Text title -->
+                        <h1 class="title">Explore Goa</h1>
+                        <!-- /Text title -->
+                        <!--<div class="button"><a href="#">See Details</a></div>-->
+                    </div>
+                </div>
+               <!-- /Texts container -->
+            </div>
+            <!-- /Duplicate to create more slides -->
+			 <div><br></div>
+
+
+            <div class="slide">
+               <img src="{% static 'images/goa1.jpg' %}" class="img-responsive" alt=""/>
+                <div class="slide_content">
+                    <div class="slide_content_wrap">
+                        <h1 class="title">Explore Goa</h1>
+                       	<!--<div class="button"><a href="#">See Details</a></div>-->
+                    </div>
+                </div>
+            </div>
+
+			 <div class="slide">
+               <img src="{% static 'images/goa3.jpg' %}" class="img-responsive" alt=""/>
+                <div class="slide_content">
+                    <div class="slide_content_wrap">
+                        <h1 class="title">Explore Goa</h1>
+                       	<!--<div class="button"><a href="#">See Details</a></div>-->
+                    </div>
+                </div>
+            </div>
+            <!--/slide -->
+        </div>
+        <div class="timers"></div>
+        <div class="slidePrev"><span></span></div>
+        <div class="slideNext"><span></span></div>
+       </div>
+       <!--/slider -->
+      </div>
+
+      	<div class="content-bottom">
+		<div class="container">
+			<div class="row content_bottom-text">
+			  <div class="col-md-7">
+				<!--<h3 style="color:black"><b>North India Tour</b></h3>-->
+                  <h3 style="color:green" ><b>7 Days - Goa </b></h3>
+				<p style="color:black"><b> Goa owes its magnetism to its sandy beaches extended along the sun-drenched coastline.
+                    The climate is barmy. The perfect blend of sun, sand and sea makes the tourists fell in love with this amazing destination.
+                    The warm hospitality of the people and the breathtaking panoramas render a congenial travel experience to the tourists.
+                    Without a doubt, Goa is one of the most sought after beach destinations in the world and it is frequented by vacationers
+                    from all around the blue planet. When this tour is mixed with the opulence of the commercial capital of India- Mumbai,
+                    the delight becomes more profound and the trip experience becomes never to be forgotten.
+                    This trip jumbles the tour of Mumbai with Goa and caters a complete beach tour.
+                    The combination of these two sublime tourist destinations is something that an avid vacationer can't afford to miss.   </b></p><br>
+
+
+                  <h2 style="color:green"><b>ITINERARY</b></h2>
+                  <ul style="list-style-type:none;">
+                      <h2 style="color:brown"><b>Day 1: </b>ARRIVE - MUMBAI</h2>
+                      <li>  <b> On arrival in Mumbai, our representative will transfer you to your pre-booked hotel.
+                          Check in the hotel for an overnight stay.</b></li><br>
+
+                      <h2 style="color:brown"><b>Day 2: </b>MUMBAI - JUHU BEACH</h2>
+                      <li>  <b> In the morning, we will be proceeding to explore the Mumbai city.
+                          We will visit Gateway of India, Juhu beach and Elephanta Caves.
+                          Evening is free for shopping or leisure. Enjoy a night stay at the hotel.</b></li><br>
+
+
+                       <h2 style="color:brown"><b>Day 3: </b> MUMBAI – GOA</h2>
+                      <li>  <b> In the morning, we will transfer you to the domestic airport to catch the flight for Goa,
+                          On arrival in Goa, our representative will transfer you to the hotel. Rest of the day is free to relax on the beach sore.
+                          Evening is free to enjoy Goan Carnival Theme (Join a traditional carnival, which is a part of rich Portuguese heritage of Goa.
+                          Enjoy singing, dancing, tasting good food and wine and have a wonderful evening in Goa.
+                          An overnight stay at the hotel. </b></li><br>
+
+
+                       <h2 style="color:brown"><b>Day 4: </b>Goa</h2>
+                      <li>  <b>Today, we will discover the North and South Goa. In the evening, we offer you fishing village.
+                          Fishing villages are part of rich cultural heritage of Goa. Created on hotel's ground,
+                          Local Goan fishing village forms an ideal backdrop to make your evening more charming and romantic.
+                          In the villages, artists showcase their skills while the village dancers sing their local songs.
+                          An overnight at the hotel. </b></li><br>
+
+
+                       <h2 style="color:brown"><b>Day 5: </b>Goa</h2>
+                      <li>  <b> The day is free to relax alongside the Anjuna beach.
+                          In the evening, you can enjoy tasting a variety of Sea food Bar-be-cue on the beach.
+                          You can take pleasure of dinning under a light of the shining stars in the sky on succulent lobsters and taste various
+                          local seafood delicacies that together forms a part of a delightful bar-be-cue set alongside the lovely stretch of the Goan beach.
+                          Also, you can cook your own food on skewers over a camp fire.
+                          A local musician captures the magic of the moment on his guitar strings. An overnight stay at the hotel.</b></li><br>
+
+
+
+                       <h2 style="color:brown"><b>Day 6: </b>GOA - MUMBAI </h2>
+                      <li>  <b>  Morning is free for leisure in Goa. In the afternoon, we will process to catch the flight for Mumbai.
+                          On arrival in Mumbai, check in at the hotel for an overnight stay. </b></li><br>
+
+
+
+                       <h2 style="color:brown"><b>Day 7: </b>MUMBAI</h2>
+                      <li>  <b> Today, we will transfer you to the airport to catch the flight for onward destination.</b></li><br>
+
+
+
+
+
+
+                  </ul>
+
+
+			  </div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+
+
+
+
+
+		<div class="footer">
+			<div class="container">
+				<div class="row">
+
+					<div class="col-md-3">
+						<ul class="footer_box">
+							<h4>HotDeals</h4>
+							<li><a href="north">North India</a></li>
+							<li><a href="south">South India</a></li>
+							<li><a href="northeast">North East</a></li>
+							<li><a href="rajasthan">Rajasthan</a></li>
+						</ul>
+					</div>
+					<div class="col-md-3">
+						<ul class="footer_box">
+							<h4>Customer Support</h4>
+							<li><a href="contact">Contact Us</a></li>
+
+						</ul>
+					</div>
+					<div class="col-md-3">
+						<ul class="footer_box">
+							<h4>Newsletter</h4>
+							<div class="footer_search">
+				    		   <form>
+				    			<input type="text" value="Enter your email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Enter your email';}">
+				    			<input type="submit" value="Go">
+				    		   </form>
+					        </div>
+							<ul class="social">
+							  <li class="facebook"><a href="#"><span> </span></a></li>
+							  <li class="twitter"><a href="#"><span> </span></a></li>
+							  <li class="instagram"><a href="#"><span> </span></a></li>
+							  <li class="pinterest"><a href="#"><span> </span></a></li>
+							  <li class="youtube"><a href="#"><span> </span></a></li>
+						    </ul>
+
+						</ul>
+					</div>
+                    </div>
+				</div>
+
+			</div>
+		</div>
+
+</body>
+</html>

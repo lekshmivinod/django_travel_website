@@ -1,0 +1,287 @@
+
+
+<!DOCTYPE HTML>
+<html>
+<head>
+	{% load static %}
+<title>TRIP PLANNER</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+<link href="{% static 'css/bootstrap.css' %}" rel='stylesheet' type='text/css' />
+<link href="{% static 'css/style.css' %}" rel='stylesheet' type='text/css' />
+<link href="{% static 'css/style1.css' %}" rel='stylesheet' type='text/css' />
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<!--<script src="js/jquery.easydropdown.js"></script>-->
+<!--start slider -->
+<link rel="stylesheet" href="{% static 'css/fwslider.css' %}" media="all">
+<script src="{% static 'js/jquery-ui.min.js' %}"></script>
+<script src="{% static 'js/fwslider.js' %}"></script>
+<!--end slider -->
+<script type="text/javascript">
+        $(document).ready(function() {
+            $(".dropdown img.flag").addClass("flagvisibility");
+
+            $(".dropdown dt a").click(function() {
+                $(".dropdown dd ul").toggle();
+            });
+
+            $(".dropdown dd ul li a").click(function() {
+                var text = $(this).html();
+                $(".dropdown dt a span").html(text);
+                $(".dropdown dd ul").hide();
+                $("#result").html("Selected value is: " + getSelectedValue("sample"));
+            });
+
+            function getSelectedValue(id) {
+                return $("#" + id).find("dt a span.value").html();
+            }
+
+            $(document).bind('click', function(e) {
+                var $clicked = $(e.target);
+                if (! $clicked.parents().hasClass("dropdown"))
+                    $(".dropdown dd ul").hide();
+            });
+
+
+            $("#flagSwitcher").click(function() {
+                $(".dropdown img.flag").toggleClass("flagvisibility");
+            });
+        });
+     </script>
+</head>
+<body>
+	<div class="header">
+		<div class="container">
+			<div class="row">
+			  <div class="col-md-12">
+				 <div class="header-left">
+					 <div class="logo">
+						<a href="/myapp/index/"><img src="{% static 'images/logo.png' %}" alt=""/></a>
+					 </div>
+					 <div class="menu">
+						    <ul class="nav" id="nav">
+
+								<li><a href="/myapp/index">Home</a></li>
+						    	<li class="current"><a href="/myapp/gallery/">Gallery</a></li>
+								<li><a href="/myapp/contact_lo/">Contact Us</a></li>
+								<li><a href="/myapp/register/">Register</a></li>
+								<li><a href="/myapp/login/">Sign In</a></li>
+
+
+								<div class="clear"></div>
+							</ul>
+
+							<script type="text/javascript" src="{% static 'js/responsive-nav.js' %}"></script>
+					 </div>
+	    		    <div class="clear"></div>
+	    	    </div>
+	            <div class="header_right">
+	    		  <!-- start search-->
+				      <div class="search-box">
+							<div id="sb-search" class="sb-search">
+								<form>
+									<input class="sb-search-input" placeholder="Enter your search term..." type="search" name="search" id="search">
+									<input class="sb-search-submit" type="submit" value="">
+									<span class="sb-icon-search"> </span>
+								</form>
+							</div>
+						</div>
+						<!----search-scripts---->
+						<script src="{% static 'js/classie.js' %}"></script>
+						<script src="{% static 'js/uisearch.js' %}"></script>
+						<script>
+							new UISearch( document.getElementById( 'sb-search' ) );
+						</script>
+						<!----//search-scripts---->
+
+						  <div class="clear"></div>
+
+		           <div class="clear"></div>
+	       </div>
+	      </div>
+		 </div>
+	    </div>
+	  </div>
+
+
+
+
+
+
+	</div>
+	<div class="banner">
+	<!-- start slider -->
+       <div id="fwslider">
+         <div class="slider_container">
+            <div class="slide">
+                <!-- Slide image -->
+               <img src="{% static 'images/manali2.jpg' %}" class="img-responsive" alt=""/>
+                <!-- /Slide image -->
+                <!-- Texts container -->
+                <div class="slide_content">
+                    <div class="slide_content_wrap">
+                        <!-- Text title -->
+                        <h1 class="title">Explore Manali</h1>
+                        <!-- /Text title -->
+                        <!--<div class="button"><a href="#">See Details</a></div>-->
+                    </div>
+                </div>
+               <!-- /Texts container -->
+            </div>
+            <!-- /Duplicate to create more slides -->
+			 <div><br></div>
+
+
+            <div class="slide">
+               <img src="{% static 'images/manali1.jpg' %}" class="img-responsive" alt=""/>
+                <div class="slide_content">
+                    <div class="slide_content_wrap">
+                        <h1 class="title">Explore Manali</h1>
+                       	<!--<div class="button"><a href="#">See Details</a></div>-->
+                    </div>
+                </div>
+            </div>
+
+			 <div class="slide">
+               <img src="{% static 'images/manali3.jpg' %}" class="img-responsive" alt=""/>
+                <div class="slide_content">
+                    <div class="slide_content_wrap">
+                        <h1 class="title">Explore Manali</h1>
+                       	<!--<div class="button"><a href="#">See Details</a></div>-->
+                    </div>
+                </div>
+            </div>
+            <!--/slide -->
+        </div>
+        <div class="timers"></div>
+        <div class="slidePrev"><span></span></div>
+        <div class="slideNext"><span></span></div>
+       </div>
+       <!--/slider -->
+      </div>
+
+      	<div class="content-bottom">
+		<div class="container">
+			<div class="row content_bottom-text">
+			  <div class="col-md-7">
+				<!--<h3 style="color:black"><b>North India Tour</b></h3>-->
+                  <h3 style="color:green" ><b>5 Days - Manali </b></h3>
+				<p style="color:black"><b>Kullu Manali is one of those exquisite destinations that are extremely popular among holiday enthusiasts worldwide.
+					Enveloped by the stunning snow-clad Himalayas, Kullu Manali is replete with many beautiful prominent places Solang Valley,
+					Rohtang Pass, Gadhan Thekchoking Gompa, Vashist hot water springs and so on that are suffused with apple orchards,
+					vivid landscapes and magnificent tourist attractions.
+					Our 4 nights and 5 days package help you to experience all these wonderful things create a perfect setting for the memorable vacations.</b></p><br>
+
+
+                  <h2 style="color:green"><b>ITINERARY</b></h2>
+                  <ul style="list-style-type:none;">
+                      <h2 style="color:brown"><b>Day 1: </b>DELHI - MANALI</h2>
+                      <li>  <b>Early morning drive from Delhi to Manali. Meet our representative upon arrival at Manali and transfer to your pre-booked hotel.
+						  Enjoy mouthwatering dinner and overnight stay at the hotel.</b></li><br>
+
+                      <h2 style="color:brown"><b>Day 2: </b>MANALI</h2>
+                      <li>  <b>After the hearty breakfast, get ready for the sightseeing tour of the Manali hill station
+						  and visit the Hadimba Devi Temple, Manu Temple, Tibetan Monasteries and Vashist Village.
+						  Afternoon is free for your own leisure activities.
+						  Dinner and overnight stay at the hotel.</b></li><br>
+
+
+                       <h2 style="color:brown"><b>Day 3: </b> MANALI</h2>
+                      <li>  <b> Proceed for a full day excursion by visiting the several prominent places such as the Kothi Gorge,
+						  Gulaba Marhi, Rohtang Pass and Solang Valley. In the evening, return to your hotel,
+						  enjoy the scrumptious dinner and a comfortable overnight stay.</b></li><br>
+
+
+                       <h2 style="color:brown"><b>Day 4:</b>MANALI- MANIKARAN VIA KULLU - MANALI </h2>
+                      <li>  <b>After breakfast, check out of your hotel in Manali and drive to Manikaran, which is situated about 75 kms from Kullu.
+						  Manikaran is essentially a sacred pilgrimage place, especially for the Hindus.
+						  It is believed that the Lord Manu recreated human life in Manikaran after the severe flood.
+						  The place is replete with several temples and a gurudwara.
+						  After the sightseeing in Manikaran, drive to Kullu for a half day sightseeing tour.
+						  Dinner and overnight stay at Manali. </b></li><br>
+
+
+                       <h2 style="color:brown"><b>Day 5:</b>MANALI-DELHI</h2>
+                      <li>  <b> After breakfast, early morning drive from Manali to Delhi for your onward destination.</b></li><br>
+
+                  </ul>
+
+
+			  </div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+		<div class="footer">
+			<div class="container">
+				<div class="row">
+
+					<div class="col-md-3">
+						<ul class="footer_box">
+							<h4>QUICK LINKS</h4>
+							<li><a href="/myapp/index/">HOME</a></li>
+							<li><a href="/myapp/contact_lo/">ABOUT US</a></li>
+						</ul>
+					</div>
+
+					<div class="col-md-3">
+						<ul class="footer_box">
+							<h4>Destinations</h4>
+							<li><a href="/myapp/varanasi_lo/">VARANASI</a></li>
+							<li><a href="/myapp/rajasthan_lo/">RAJASTHAN</a></li>
+							<li><a href="/myapp/kashmir_lo/">KASHMIR</a></li>
+							<li><a href="/myapp/manali_lo/">MANALI</a></li>
+						</ul>
+					</div>
+
+
+					<div class="col-md-3">
+						<ul class="footer_box">
+							<h4>Customer Support</h4>
+							<li><a href="/myapp/contact_lo/">CONTACT US</a></li>
+
+						</ul>
+					</div>
+
+
+
+					<div class="col-md-3">
+						<ul class="footer_box">
+							<h4>Newsletter</h4>
+							<div class="footer_search">
+				    		   <form>
+				    			<input type="text" value="Enter your email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Enter your email';}">
+				    			<input type="submit" value="Go">
+				    		   </form>
+					        </div>
+							<ul class="social">
+							  <li class="facebook"><a href="#"><span> </span></a></li>
+							  <li class="twitter"><a href="#"><span> </span></a></li>
+							  <li class="instagram"><a href="#"><span> </span></a></li>
+							  <li class="pinterest"><a href="#"><span> </span></a></li>
+							  <li class="youtube"><a href="#"><span> </span></a></li>
+						    </ul>
+
+						</ul>
+					</div>
+				</div>
+				<div class="row footer_bottom">
+				    <div class="copy">
+			           <p>© 2019 Template by <a href="/myapp/index/" target="_blank">tripplanner</a></p>
+		            </div>
+   				</div>
+			</div>
+		</div>
+	  </div>
+</body>
+</html>
+

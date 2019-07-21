@@ -1,0 +1,312 @@
+
+
+<!DOCTYPE HTML>
+<html>
+<head>
+	{% load static %}
+<title>TRIP PLANNER</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+<link href="{% static 'css/bootstrap.css' %}" rel='stylesheet' type='text/css' />
+<link href="{% static 'css/style.css' %}" rel='stylesheet' type='text/css' />
+<link href="{% static 'css/style1.css' %}" rel='stylesheet' type='text/css' />
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<!--<script src="js/jquery.easydropdown.js"></script>-->
+<!--start slider -->
+<link rel="stylesheet" href="{% static 'css/fwslider.css' %}" media="all">
+<script src="{% static 'js/jquery-ui.min.js' %}"></script>
+<script src="{% static 'js/fwslider.js' %}"></script>
+<!--end slider -->
+<script type="text/javascript">
+        $(document).ready(function() {
+            $(".dropdown img.flag").addClass("flagvisibility");
+
+            $(".dropdown dt a").click(function() {
+                $(".dropdown dd ul").toggle();
+            });
+
+            $(".dropdown dd ul li a").click(function() {
+                var text = $(this).html();
+                $(".dropdown dt a span").html(text);
+                $(".dropdown dd ul").hide();
+                $("#result").html("Selected value is: " + getSelectedValue("sample"));
+            });
+
+            function getSelectedValue(id) {
+                return $("#" + id).find("dt a span.value").html();
+            }
+
+            $(document).bind('click', function(e) {
+                var $clicked = $(e.target);
+                if (! $clicked.parents().hasClass("dropdown"))
+                    $(".dropdown dd ul").hide();
+            });
+
+
+            $("#flagSwitcher").click(function() {
+                $(".dropdown img.flag").toggleClass("flagvisibility");
+            });
+        });
+     </script>
+</head>
+<body>
+	<div class="header">
+		<div class="container">
+			<div class="row">
+			  <div class="col-md-12">
+				 <div class="header-left">
+					 <div class="logo">
+						<a href="/myapp/index/"><img src="{% static 'images/logo.png' %}" alt=""/></a>
+					 </div>
+					 <div class="menu">
+						    <ul class="nav" id="nav">
+
+								<li><a href="/myapp/index/">Home</a></li>
+						    	<li class="current"><a href="/myapp/gallery/">Gallery</a></li>
+								<li><a href="/myapp/contact_lo/">Contact Us</a></li>
+								<li><a href="/myapp/register/">Register</a></li>
+								<li><a href="/myapp/login/">Sign In</a></li>
+
+
+								<div class="clear"></div>
+							</ul>
+
+							<script type="text/javascript" src="{% static 'js/responsive-nav.js' %}"></script>
+					 </div>
+	    		    <div class="clear"></div>
+	    	    </div>
+	            <div class="header_right">
+	    		  <!-- start search-->
+				      <div class="search-box">
+							<div id="sb-search" class="sb-search">
+								<form>
+									<input class="sb-search-input" placeholder="Enter your search term..." type="search" name="search" id="search">
+									<input class="sb-search-submit" type="submit" value="">
+									<span class="sb-icon-search"> </span>
+								</form>
+							</div>
+						</div>
+						<!----search-scripts---->
+						<script src="{% static 'js/classie.js' %}"></script>
+						<script src="{% static 'js/uisearch.js' %}"></script>
+						<script>
+							new UISearch( document.getElementById( 'sb-search' ) );
+						</script>
+						<!----//search-scripts---->
+
+						  <div class="clear"></div>
+
+		           <div class="clear"></div>
+	       </div>
+	      </div>
+		 </div>
+	    </div>
+	  </div>
+
+
+
+
+
+
+	<div class="banner">
+	<!-- start slider -->
+       <div id="fwslider">
+         <div class="slider_container">
+            <div class="slide">
+                <!-- Slide image -->
+               <img src="{% static 'images/kashmir1.jpg' %}" class="img-responsive" alt=""/>
+                <!-- /Slide image -->
+                <!-- Texts container -->
+                <div class="slide_content">
+                    <div class="slide_content_wrap">
+                        <!-- Text title -->
+                        <h1 class="title">Explore Kashmir</h1>
+                        <!-- /Text title -->
+                        <!--<div class="button"><a href="#">See Details</a></div>-->
+                    </div>
+                </div>
+               <!-- /Texts container -->
+            </div>
+            <!-- /Duplicate to create more slides -->
+			 <div><br></div>
+
+
+            <div class="slide">
+               <img src="{% static 'images/kashmir2.jpg' %}" class="img-responsive" alt=""/>
+                <div class="slide_content">
+                    <div class="slide_content_wrap">
+                        <h1 class="title">Explore Kashmir</h1>
+                       	<!--<div class="button"><a href="#">See Details</a></div>-->
+                    </div>
+                </div>
+            </div>
+
+			 <div class="slide">
+               <img src="{% static 'images/kashmir3.jpg' %}" class="img-responsive" alt=""/>
+                <div class="slide_content">
+                    <div class="slide_content_wrap">
+                        <h1 class="title">Explore Kashmir</h1>
+                       	<!--<div class="button"><a href="#">See Details</a></div>-->
+                    </div>
+                </div>
+            </div>
+            <!--/slide -->
+        </div>
+        <div class="timers"></div>
+        <div class="slidePrev"><span></span></div>
+        <div class="slideNext"><span></span></div>
+       </div>
+       <!--/slider -->
+      </div>
+
+      	<div class="content-bottom">
+		<div class="container">
+			<div class="row content_bottom-text">
+			  <div class="col-md-7">
+				<!--<h3 style="color:black"><b>North India Tour</b></h3>-->
+                  <h3 style="color:green" ><b>7 Days - Kashmir </b></h3>
+				<p style="color:black"><b>The backdrop of snow-dressed mountains, land painted in green and stunning lake, perhaps,
+                    this is what strikes your mind on reading the term Splendor of Kashmir.
+                    Well, our Kashmir Holiday Package offers you exactly what you have been dreaming of.
+                    This 6 nights and 7 days tour package takes you to all the picturesque destinations of Kashmir like
+                    Srinagar, Sonmarg, Pahalgam and Gulmarg.
+                    On one hand in Srinagar the houseboat stay and a visit to the Mughal Gardens makes you feel content,
+                    and on the other hand the vistas of Sindh Valley and Sindh River in Sonmarg win your heart.
+                    Later, a tour of the calm and serene Lidder Valley at Pahalgam, and the high altitude excursion to Gulmarg make the tour more memorable.
+                    Thus, in a single tour package you get to experience a 360 degree view of Kashmir.</b></p><br>
+
+
+                  <h2 style="color:green"><b>ITINERARY</b></h2>
+                  <ul style="list-style-type:none;">
+                      <h2 style="color:brown"><b>Day 1: </b>ARRIVE JAMMU – SRINAGAR (250 KMS)</h2>
+                      <li>  <b>Arrive Jammu Train station and drive to Srinagar. On arrival check in to the hotel.
+                          Overnight stay at hotel.</b></li><br>
+
+                      <h2 style="color:brown"><b>Day 2: </b>SRINAGAR & THE CITY OF MUGHAL</h2>
+                      <li>  <b>This morning after breakfast proceed for city tour of Srinagar.
+                          The world famous Mughal Gardens visiting the
+                          Nishat Bagh (The garden of pleasure) & Shalimar Bagh (Abode of love), & The Chasme Shahi Garden, & Shankaracharya Temple.
+                          In the evening return to Houseboat. Overnight at Hotel or House boat.</b></li><br>
+
+
+                       <h2 style="color:brown"><b>Day 3: </b> SRINAGAR TO SONMARG - SRINAGAR</h2>
+                      <li>  <b>This morning after breakfast drives to Sonmarg.
+                          Explore the natural beauty of Sonmarg later come back to Srinagar for overnight stay.</b></li><br>
+
+
+                       <h2 style="color:brown"><b>Day 4: </b>SRINAGAR TO PAHALGAM</h2>
+                      <li>  <b>This morning after breakfast drives to Pahalgam 2440 Meters (Vale of Kashmir) on arrival check into your hotel.
+                          On the way visit Saffron field and Avantipur ruins, which is eleven hundred years old temple?
+                          Finally by the lunchtime you will reach Pahalgam, which is the most famous palace for Indian Film Industry.
+                          After lunch enjoy the nature charm of the valley. </b></li><br>
+
+
+                       <h2 style="color:brown"><b>Day 5: </b>PAHALGAM TO GULMARG</h2>
+                      <li>  <b> This morning after breakfast drive to Gulmarg which is one of the most beautiful summer resort in the valley.
+                          On arrival check into your hotel.
+                          This afternoon visit One can have Gondola ride (cable car) from Gulmarg to Khalinmarg.
+                          Overnight at Hotel in Gulmarg.</b></li><br>
+
+
+
+                       <h2 style="color:brown"><b>Day 6: </b>GULMARG (SIGHT SEEING)- SRINAGAR (52 KMS)</h2>
+                      <li>  <b>After breakfast visit for the highest golf course in the world and skiing during the winter season.
+                          Hara Mukh & Sun Set Peak.
+                          Later drive to Srinagar. On arrival check in to the hotel/House boat. Overnight stay. </b></li><br>
+
+
+
+                       <h2 style="color:brown"><b>Day 7: </b> SRINAGAR-JAMMU (250 KMS)</h2>
+                      <li>  <b>After breakfast drive to Jammu.
+                          On arrival you will be transferred to Airport/Train station for onward destination. </b></li><br>
+
+
+
+
+
+
+                  </ul>
+
+
+			  </div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+
+
+
+		<div class="footer">
+			<div class="container">
+				<div class="row">
+
+					<div class="col-md-3">
+						<ul class="footer_box">
+							<h4>QUICK LINKS</h4>
+							<li><a href="/myapp/index/">HOME</a></li>
+							<li><a href="/myapp/contact_lo/">ABOUT US</a></li>
+						</ul>
+					</div>
+
+					<div class="col-md-3">
+						<ul class="footer_box">
+							<h4>Destinations</h4>
+							<li><a href="/myapp/varanasi_lo/">VARANASI</a></li>
+							<li><a href="/myapp/rajasthan_lo/">RAJASTHAN</a></li>
+							<li><a href="/myapp/kashmir_lo/">KASHMIR</a></li>
+							<li><a href="/myapp/manali_lo/">MANALI</a></li>
+						</ul>
+					</div>
+
+
+					<div class="col-md-3">
+						<ul class="footer_box">
+							<h4>Customer Support</h4>
+							<li><a href="/myapp/contact_lo/">CONTACT US</a></li>
+
+						</ul>
+					</div>
+
+
+
+					<div class="col-md-3">
+						<ul class="footer_box">
+							<h4>Newsletter</h4>
+							<div class="footer_search">
+				    		   <form>
+				    			<input type="text" value="Enter your email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Enter your email';}">
+				    			<input type="submit" value="Go">
+				    		   </form>
+					        </div>
+							<ul class="social">
+							  <li class="facebook"><a href="#"><span> </span></a></li>
+							  <li class="twitter"><a href="#"><span> </span></a></li>
+							  <li class="instagram"><a href="#"><span> </span></a></li>
+							  <li class="pinterest"><a href="#"><span> </span></a></li>
+							  <li class="youtube"><a href="#"><span> </span></a></li>
+						    </ul>
+
+						</ul>
+					</div>
+				</div>
+				<div class="row footer_bottom">
+				    <div class="copy">
+			           <p>© 2019 Template by <a href="/myapp/index/" target="_blank">tripplanner</a></p>
+		            </div>
+   				</div>
+			</div>
+		</div>
+	  </div>
+</body>
+</html>
+

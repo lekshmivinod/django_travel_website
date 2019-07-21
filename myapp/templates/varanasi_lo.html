@@ -1,0 +1,292 @@
+
+
+<!DOCTYPE HTML>
+<html>
+<head>
+	{% load static %}
+<title>TRIP PLANNER</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+<link href="{% static 'css/bootstrap.css' %}" rel='stylesheet' type='text/css' />
+<link href="{% static 'css/style.css' %}" rel='stylesheet' type='text/css' />
+<link href="{% static 'css/style1.css' %}" rel='stylesheet' type='text/css' />
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<!--<script src="js/jquery.easydropdown.js"></script>-->
+<!--start slider -->
+<link rel="stylesheet" href="{% static 'css/fwslider.css' %}" media="all">
+<script src="{% static 'js/jquery-ui.min.js' %}"></script>
+<script src="{% static 'js/fwslider.js' %}"></script>
+<!--end slider -->
+<script type="text/javascript">
+        $(document).ready(function() {
+            $(".dropdown img.flag").addClass("flagvisibility");
+
+            $(".dropdown dt a").click(function() {
+                $(".dropdown dd ul").toggle();
+            });
+
+            $(".dropdown dd ul li a").click(function() {
+                var text = $(this).html();
+                $(".dropdown dt a span").html(text);
+                $(".dropdown dd ul").hide();
+                $("#result").html("Selected value is: " + getSelectedValue("sample"));
+            });
+
+            function getSelectedValue(id) {
+                return $("#" + id).find("dt a span.value").html();
+            }
+
+            $(document).bind('click', function(e) {
+                var $clicked = $(e.target);
+                if (! $clicked.parents().hasClass("dropdown"))
+                    $(".dropdown dd ul").hide();
+            });
+
+
+            $("#flagSwitcher").click(function() {
+                $(".dropdown img.flag").toggleClass("flagvisibility");
+            });
+        });
+     </script>
+</head>
+<body>
+	<div class="header">
+		<div class="container">
+			<div class="row">
+			  <div class="col-md-12">
+				 <div class="header-left">
+					 <div class="logo">
+						<a href="/myapp/index/"><img src="{% static 'images/logo.png' %}" alt=""/></a>
+					 </div>
+					 <div class="menu">
+						    <ul class="nav" id="nav">
+
+								<li><a href="/myapp/index/">Home</a></li>
+						    	<li class="current"><a href="/myapp/gallery/">Gallery</a></li>
+								<li><a href="/myapp/contact_lo/">Contact Us</a></li>
+								<li><a href="/myapp/register/">Register</a></li>
+								<li><a href="/myapp/login/">Sign In</a></li>
+
+
+								<div class="clear"></div>
+							</ul>
+
+							<script type="text/javascript" src="{% static 'js/responsive-nav.js' %}"></script>
+					 </div>
+	    		    <div class="clear"></div>
+	    	    </div>
+	            <div class="header_right">
+	    		  <!-- start search-->
+				      <div class="search-box">
+							<div id="sb-search" class="sb-search">
+								<form>
+									<input class="sb-search-input" placeholder="Enter your search term..." type="search" name="search" id="search">
+									<input class="sb-search-submit" type="submit" value="">
+									<span class="sb-icon-search"> </span>
+								</form>
+							</div>
+						</div>
+						<!----search-scripts---->
+						<script src="{% static 'js/classie.js' %}"></script>
+						<script src="{% static 'js/uisearch.js' %}"></script>
+						<script>
+							new UISearch( document.getElementById( 'sb-search' ) );
+						</script>
+						<!----//search-scripts---->
+
+						  <div class="clear"></div>
+
+		           <div class="clear"></div>
+	       </div>
+	      </div>
+		 </div>
+	    </div>
+	  </div>
+
+
+
+
+
+	<div class="banner">
+	<!-- start slider -->
+       <div id="fwslider">
+         <div class="slider_container">
+            <div class="slide">
+                <!-- Slide image -->
+               <img src="{% static 'images/varanasi1.jpg' %}" class="img-responsive" alt=""/>
+                <!-- /Slide image -->
+                <!-- Texts container -->
+                <div class="slide_content">
+                    <div class="slide_content_wrap">
+                        <!-- Text title -->
+                        <h1 class="title">Explore Varanasi</h1>
+                        <!-- /Text title -->
+                        <!--<div class="button"><a href="#">See Details</a></div>-->
+                    </div>
+                </div>
+               <!-- /Texts container -->
+            </div>
+            <!-- /Duplicate to create more slides -->
+			 <div><br></div>
+
+
+            <div class="slide">
+               <img src="{% static 'images/varanasi2.jpg' %}" class="img-responsive" alt=""/>
+                <div class="slide_content">
+                    <div class="slide_content_wrap">
+                        <h1 class="title">Explore Varanasi</h1>
+                       	<!--<div class="button"><a href="#">See Details</a></div>-->
+                    </div>
+                </div>
+            </div>
+
+			 <div class="slide">
+               <img src="{% static 'images/varanasi3.jpg' %}" class="img-responsive" alt=""/>
+                <div class="slide_content">
+                    <div class="slide_content_wrap">
+                        <h1 class="title">Explore Varanasi</h1>
+                       	<!--<div class="button"><a href="#">See Details</a></div>-->
+                    </div>
+                </div>
+            </div>
+            <!--/slide -->
+        </div>
+        <div class="timers"></div>
+        <div class="slidePrev"><span></span></div>
+        <div class="slideNext"><span></span></div>
+       </div>
+       <!--/slider -->
+      </div>
+
+      	<div class="content-bottom">
+		<div class="container">
+			<div class="row content_bottom-text">
+			  <div class="col-md-7">
+				<!--<h3 style="color:black"><b>North India Tour</b></h3>-->
+                  <h3 style="color:green" ><b>3 Days - Varanasi </b></h3>
+				<p style="color:black"><b> With the vibrant culture, lovely people, fascinating rites and rituals, the city of Varanasi is a spiritual bliss for every traveller.
+					Trip Planner gives you a chance to be a part of the surreal beauty of this mystical city through our amazing Varanasi tour packages.
+					This religious tour of Varanasi takes you to some of the top pilgrimage sites of the city that cannot be ignored while in the city.
+					Bharat Mata Temple, Sankat Mochan, Annapurna Temple, Vishwanath Temple and Manas Mandir are some popular pilgrimage sites in Varanasi
+					that you will be visiting on this expedition. Besides, the talk of this tour is the evening Ganga Aarti on the banks of River Ganges.
+					Adding a different grandeur in this entire excursion is the early morning boating experience in the waters of Ganges.
+					This Varanasi trip also covers the popular tourist places of Sarnath and Ramnagar Fort.
+					Rest you can be assured by our remarkable services and great hospitality that includes accommodation, food and travel.    </b></p><br>
+
+
+                  <h2 style="color:green"><b>ITINERARY</b></h2>
+                  <ul style="list-style-type:none;">
+                      <h2 style="color:brown"><b>Day 1: </b>ARRIVAL IN VARANASI</h2>
+                      <li>  <b> Your amazing Varanasi tour with Trip Planner will start with your arrival at Varanasi airport/railway station,
+						  whichever of your choice. At the station/airport, our representative will be waiting to escort you to a pre-booked hotel.
+						  Upon arrival, check-in to the hotel and get freshened up.Thereafter, you will be served with a delectable lunch.
+						  Followed by this, you will be taken out for a sightseeing tour of Saranath.
+						  It is a small village in the suburbs of Varanasi which is known as the place where Lord Buddha delivers his first sermon to his disciples.
+						  In Sarnath, you will visit some popular tourist sites of the region - Buddha temples,
+						  the Dhamekha stupa, Chaukhandi stupa and the archaeological museum.
+						  In the evening, you will be treated with the surreal sight of Ganga Aarti on the banks of River Ganges.
+						  For dinner and overnight stay, you will be transferred back to the same hotel.  </b></li><br>
+
+                      <h2 style="color:brown"><b>Day 2: </b>VARANASI TO RAMNAGAR</h2>
+                      <li>  <b>  The day 2 of this wonderful Varanasi trip will start a bit early with an early morning boat ride on the waters of River Ganges.
+						  Visit all the popular Ghats of Varanasi through boat ride and also relish the spectacular views of people offering water to
+						  Sun God along with taking a holy dip in the river water.Thereafter, head back to the hotel.
+						  Upon arrival, you will be served with a delicious morning meal.Post breakfast, be ready for an another Varanasi sightseeing tour.
+						  On the tour, visit the 17th century Ramnagar Fort.
+						  Once the residence of Maharaja of Banaras, the fort has become an interesting sightseeing choice which also includes a historical museum.
+						  In the evening, you will be accommodated back to the same hotel.</b></li><br>
+
+
+                       <h2 style="color:brown"><b>Day 3: </b>VARANASI SIGHTSEEING TOUR AND DEPARTURE</h2>
+                      <li>  <b> Enjoy a delectable breakfast in the morning.Followed by this, be ready for a final sightseeing tour of the city.
+						  On the tour, be ready to visit some tourism places of Varanasi - Bharat Mata Temple, Vishwanath Temple,
+						  Sankat Mochan (Hanuman Temple), Annapurna Temple, Banaras Hindu University (BHU) and Manas Mandir.
+						  After the sightseeing tour, you will be taken back to the hotel.Be ready with your backpack and
+						  check-out from the hotel to drive back to the airport/station.
+						  Upon arrival, board your flight/train back to either onward or home destinations.</b></li><br>
+
+                  </ul>
+
+
+			  </div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+
+
+
+
+		<div class="footer">
+			<div class="container">
+				<div class="row">
+
+					<div class="col-md-3">
+						<ul class="footer_box">
+							<h4>QUICK LINKS</h4>
+							<li><a href="/myapp/index/">HOME</a></li>
+							<li><a href="/myapp/contact_lo/">ABOUT US</a></li>
+						</ul>
+					</div>
+
+					<div class="col-md-3">
+						<ul class="footer_box">
+							<h4>Destinations</h4>
+							<li><a href="/myapp/varanasi_lo/">VARANASI</a></li>
+							<li><a href="/myapp/rajasthan_lo/">RAJASTHAN</a></li>
+							<li><a href="/myapp/kashmir_lo/">KASHMIR</a></li>
+							<li><a href="/myapp/manali_lo/">MANALI</a></li>
+						</ul>
+					</div>
+
+
+					<div class="col-md-3">
+						<ul class="footer_box">
+							<h4>Customer Support</h4>
+							<li><a href="/myapp/contact_lo/">CONTACT US</a></li>
+
+						</ul>
+					</div>
+
+
+
+					<div class="col-md-3">
+						<ul class="footer_box">
+							<h4>Newsletter</h4>
+							<div class="footer_search">
+				    		   <form>
+				    			<input type="text" value="Enter your email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Enter your email';}">
+				    			<input type="submit" value="Go">
+				    		   </form>
+					        </div>
+							<ul class="social">
+							  <li class="facebook"><a href="#"><span> </span></a></li>
+							  <li class="twitter"><a href="#"><span> </span></a></li>
+							  <li class="instagram"><a href="#"><span> </span></a></li>
+							  <li class="pinterest"><a href="#"><span> </span></a></li>
+							  <li class="youtube"><a href="#"><span> </span></a></li>
+						    </ul>
+
+						</ul>
+					</div>
+				</div>
+				<div class="row footer_bottom">
+				    <div class="copy">
+			           <p>© 2019 Template by <a href="/myapp/index/" target="_blank">tripplanner</a></p>
+		            </div>
+   				</div>
+			</div>
+		</div>
+	  </div>
+</body>
+</html>
