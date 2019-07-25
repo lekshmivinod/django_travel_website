@@ -116,8 +116,8 @@
 
 
 <div class="container" style="padding:30px 30px;"></div>
-
-  <form action="loggedin ">{% csrf_token %}
+  <form action=" {% url 'loginforms' %}"> {% csrf_token %}
+	
   <h2>Login Form</h2>
     <div class="container">
      <hr>
