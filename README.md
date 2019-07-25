@@ -18,7 +18,7 @@ A guest user could:
  
  
  
- Template inspired from w3schools templates.
+ Template inspired from w3schools templates snowboarding, monster templates and youtube channels.
  
  
  
